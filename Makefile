@@ -43,16 +43,16 @@ liberror-backtrace.$(LIBEXT): $(LOBJ)
 
 install: liberror-backtrace.a liberror-backtrace.$(LIBEXT)
 	mkdir -p -- "$(DESTDIR)$(PREFIX)/lib"
-	mkdir -p -- "$(DESTDIR)$(PREFIX)/licenses/liberror-backtrace"
+	mkdir -p -- "$(DESTDIR)$(PREFIX)/share/licenses/liberror-backtrace"
 	cp -- liberror-backtrace.a "$(DESTDIR)$(PREFIX)/lib"
 	cp -- liberror-backtrace.$(LIBEXT) "$(DESTDIR)$(PREFIX)/lib/liberror-backtrace.$(LIBMINOREXT)"
 	ln -sf -- liberror-backtrace.$(LIBMINOREXT) "$(DESTDIR)$(PREFIX)/lib/liberror-backtrace.$(LIBMAJOREXT)"
 	ln -sf -- liberror-backtrace.$(LIBMINOREXT) "$(DESTDIR)$(PREFIX)/lib/liberror-backtrace.$(LIBEXT)"
-	cp -- LICENSE "$(DESTDIR)$(PREFIX)/licenses/liberror-backtrace"
+	cp -- LICENSE "$(DESTDIR)$(PREFIX)/share/licenses/liberror-backtrace"
 
 uninstall:
 	-rm -f -- "$(DESTDIR)$(PREFIX)/lib/liberror-backtrace."*
-	-rm -rf -- "$(DESTDIR)$(PREFIX)/licenses/liberror-backtrace"
+	-rm -rf -- "$(DESTDIR)$(PREFIX)/share/licenses/liberror-backtrace"
 
 clean:
 	-rm -f -- *.o *.lo *.a *.so *.so.* *.su *.test
