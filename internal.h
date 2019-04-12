@@ -22,4 +22,4 @@ struct liberror_backtrace {
 
 
 void liberror_print_backtrace(struct liberror_error *, FILE *, const char *);
-int liberror_save_backtrace_(struct liberror_error *);
+int liberror_save_backtrace(struct liberror_error *);

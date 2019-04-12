@@ -1,5 +1,10 @@
 Companion library to liberror. It enables backtrace
 support for liberror.
 
-The library need only be linked, there is no header
-file or any functions the user should use.
+The library need only be linked, together with -ldw
+(from libelf) and -lunwind (libunwind), there is no
+header file or any functions the user should use.
+Note however, for static linking you may need
+-Wl,--whole-archive before and -Wl,--no-whole-archive
+after the library when linking; for dynamic linking,
+put -lerror-backtrace before -lerror.
