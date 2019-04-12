@@ -1,0 +1,5 @@
+Companion library to liberror. It enables backtrace
+support for liberror.
+
+The library need only be linked, there is no header
+file or any functions the user should use.
