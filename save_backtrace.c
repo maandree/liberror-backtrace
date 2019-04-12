@@ -53,9 +53,15 @@ liberror_save_backtrace(struct liberror_error *error)
 
 	ret = 0;
 out:
-	if (error->backtrace && !--error->backtrace->refcount)
-		free(error->backtrace);
-	error->backtrace = backtrace;
+	if (error) {
+		if (error->backtrace && !--error->backtrace->refcount)
+			free(error->backtrace);
+		error->backtrace = backtrace;
+	} else {
+		if (liberror_saved_backtrace && !--liberror_saved_backtrace->refcount)
+			free(liberror_saved_backtrace);
+		liberror_saved_backtrace = backtrace;
+	}
 	errno = saved_errno;
 	return ret;
 }

@@ -21,5 +21,8 @@ struct liberror_backtrace {
 };
 
 
+extern _Thread_local struct liberror_backtrace *liberror_saved_backtrace;
+
+
 void liberror_print_backtrace(struct liberror_error *, FILE *, const char *);
 int liberror_save_backtrace(struct liberror_error *);
