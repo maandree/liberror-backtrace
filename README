@@ -7,4 +7,6 @@ header file or any functions the user should use.
 Note however, for static linking you may need
 -Wl,--whole-archive before and -Wl,--no-whole-archive
 after the library when linking; for dynamic linking,
-put -lerror-backtrace before -lerror.
+put -lerror-backtrace before -lerror, alternative
+the library can be loaded with LD_PRELOAD if liberror
+is dynamic linked.
