@@ -1,0 +1,60 @@
+.TH LIBERROR-BACKTRACE 7 2019-04-14 liberror
+.SH NAME
+liberror-backtrace \- implementation of backtrace for liberror
+.SH DESCRIPTION
+The
+.B liberror-backtrace
+library implements the backtrace functionality for the
+.B liberror
+library. Specifically, it replaces the implementations of the
+.BR liberror_save_backtrace (3)
+and
+.BR liberror_print_backtrace (3)
+functions with implementations that actually save and print
+the backtrace. There is no header files associated with the
+.B liberror-backtrace
+library it is simply used by linking. If
+.B liberror
+is dynamically linked,
+.B liberror-backtrace shall
+be linked with
+.I -lerror-backtrace -ldw -lunwind
+and
+.I -lerror-backtrace
+shall be specified before
+.IR -lerror .
+If
+.B liberror
+is statically linked,
+.B liberror-backtrace shall
+be linked with
+.I -Wl,--whole-archive -lerror-backtrace -Wl,--no-whole-archive -ldw -lunwind
+and it does not matter where whether
+.I -lerror-backtrace
+is specified before or after
+.IR -lerror .
+Thus, a library using
+.I -lerror
+can always be linked with
+.I -Wl,--whole-archive -lerror-backtrace -Wl,--no-whole-archive -ldw -lunwind -lerror
+for
+.B liberror
+with backtrace support. Alternatively, if
+.B liberror
+is dynamically linked,
+.B liberror-backtrace
+can be preloaded with the
+.I LD_PRELOAD
+environment variable.
+.SH EXAMPLES
+None.
+.SH APPLICATION USAGE
+None.
+.SH RATIONALE
+None.
+.SH FUTURE DIRECTIONS
+None.
+.SH NOTES
+None.
+.SH SEE ALSO
+.BR liberror (7)
