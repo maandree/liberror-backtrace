@@ -6,7 +6,9 @@ include $(CONFIGFILE)
 OS = linux
 # linux = Linux
 # macos = Mac OS
-include $(OS).mk
+# windows = Windows
+include mk/$(OS).mk
+
 
 LIB_MAJOR = 1
 LIB_MINOR = 0
@@ -50,6 +52,7 @@ install: liberror-backtrace.a liberror-backtrace.$(LIBEXT)
 	mkdir -p -- "$(DESTDIR)$(MANPREFIX)/man7"
 	cp -- liberror-backtrace.a "$(DESTDIR)$(PREFIX)/lib"
 	cp -- liberror-backtrace.$(LIBEXT) "$(DESTDIR)$(PREFIX)/lib/liberror-backtrace.$(LIBMINOREXT)"
+	$(FIX_INSTALL_NAME) "$(DESTDIR)$(PREFIX)/lib/liberror-backtrace.$(LIBMINOREXT)"
 	ln -sf -- liberror-backtrace.$(LIBMINOREXT) "$(DESTDIR)$(PREFIX)/lib/liberror-backtrace.$(LIBMAJOREXT)"
 	ln -sf -- liberror-backtrace.$(LIBMINOREXT) "$(DESTDIR)$(PREFIX)/lib/liberror-backtrace.$(LIBEXT)"
 	cp -- LICENSE "$(DESTDIR)$(PREFIX)/share/licenses/liberror-backtrace"
