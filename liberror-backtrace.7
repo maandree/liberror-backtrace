@@ -1,4 +1,4 @@
-.TH LIBERROR-BACKTRACE 7 2019-04-14 liberror
+.TH LIBERROR-BACKTRACE 7 LIBERROR
 .SH NAME
 liberror-backtrace \- implementation of backtrace for liberror
 .SH DESCRIPTION
@@ -11,13 +11,13 @@ library. Specifically, it replaces the implementations of the
 and
 .BR liberror_print_backtrace (3)
 functions with implementations that actually save and print
-the backtrace. There is no header files associated with the
+the backtrace. There are no header files associated with the
 .B liberror-backtrace
-library it is simply used by linking. If
+library; it is simply used by linking. If
 .B liberror
 is dynamically linked,
-.B liberror-backtrace shall
-be linked with
+.B liberror-backtrace
+shall be linked with
 .I -lerror-backtrace -ldw -lunwind
 and
 .I -lerror-backtrace
@@ -26,10 +26,10 @@ shall be specified before
 If
 .B liberror
 is statically linked,
-.B liberror-backtrace shall
-be linked with
+.B liberror-backtrace
+shall be linked with
 .I -Wl,--whole-archive -lerror-backtrace -Wl,--no-whole-archive -ldw -lunwind
-and it does not matter where whether
+and it does not matter whether
 .I -lerror-backtrace
 is specified before or after
 .IR -lerror .
